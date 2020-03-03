@@ -1,0 +1,64 @@
+#+TITLE: .local/lib/bash
+#+AUTHOR: Jeff Carlson
+
+* Preface
+
+These are the files that get included in my ~/.bash_profile and
+~/.bashrc.  Each of them may be for a different operating system, so
+before copying them to any host, make sure each script does what you
+want on that machine.  Or add tests to them so they exit when not on
+an appropriate machine.
+
+* Installation
+
+First, =mkdir ~/.local/lib/bash=, then copy the ones that are
+appropriate to the host in question into that directory.
+
+* Contents
+
+I am currently working with computers running any and all of the
+following:
+
+- RedHat RHEL, CentOS, and Fedora
+- Debian and Ubuntu
+- SuSE SLES and OpenSuSE
+- FreeBSD, NetBSD, and OpenBSD
+- SysV Unix Solaris, OpenIndiana, and AIX
+- Cygwin
+
+** 00term.sh
+
+In case you log in to a server whose termcap supports 256 colors, but
+does not set the TERM to reflect that.
+
+** keybinding.sh
+
+In particular, this fixes Control-Left and Control-Right to go
+backward or forward one word at a time.  Mostly for non-Linux hosts.
+
+** ls.sh
+
+On Cygwin, color ls is not set up by default.
+
+** path.sh
+
+This ensures that =Python= and =nmap= are in my PATH on Cygwin.
+
+** prompt.sh
+
+This supports many different OSes.  Sets up a color prompt.  Takes
+advantage of more than eight colors.  Sets colors correctly with tput
+instead of escape codes.  If the last command exits with an error, it
+turns the ending =$= red.  Also includes the current Git branch, if
+available.
+
+Note that on AIX, =tput= only supports =setf= and not =setaf=.  Also,
+the RGB order of bits is backward, which I assume is because Power is
+big-endian and Intel is little-endian.
+
+** ssh-agent.sh
+
+I couldn't get Cygwin to work properly with the OpenSSH tools included
+in Windows 10.  Maybe I didn't try hard enough, but I just added the
+=openssh= package to my Cygwin install.  This ensures there will be an
+=ssh-agent= running so you can add your ssh keys.
