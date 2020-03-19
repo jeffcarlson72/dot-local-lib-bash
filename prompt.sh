@@ -34,6 +34,7 @@ FGMAG2="$( tput setaf 13 )"
 FGCYA2="$( tput setaf 14 )"
 FGWHT2="$( tput setaf 15 )"
 
+BOLD="$( tput bold )"
 RESET="$( tput sgr0 )"
 
 __ps1flash()
@@ -82,6 +83,11 @@ elif [ $( uname -s ) == 'Linux' ] ; then
 	br1=']'
 	host='\[$FGRED1\]\h\[$RESET\]'
 	sep=' '
+    elif [ -f /etc/fedora-release ] ; then
+	br0='['
+	br1=']'
+	host='\[${BOLD}${FGBLU1}\]\h\[$RESET\]'
+	sep=' '
     elif [ -f /etc/SuSE-release ] ; then
 	br0='<'
 	br1='>'
@@ -90,7 +96,7 @@ elif [ $( uname -s ) == 'Linux' ] ; then
     elif [ -f /etc/debian_version ] ; then
 	br0=''
 	br1=''
-	host='\[$\]\h\[$RESET\]'
+	host='\[${BOLD}${FGGRN2}\]\h\[$RESET\]'
 	sep=':'
     fi
     if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
