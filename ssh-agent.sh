@@ -1,5 +1,10 @@
 # -*- shell-script -*-
 
+[ -n "$ssh_agent_been_here" ] &&
+    unset ssh_agent_been_here &&
+    return ||
+    export ssh_agent_been_here=1
+
 sockfile=$HOME/.ssh/agent
 if [ -f "$sockfile" ] ; then
     . $sockfile
