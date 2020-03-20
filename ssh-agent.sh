@@ -3,8 +3,10 @@
 sockfile=$HOME/.ssh/agent
 if [ -f "$sockfile" ] ; then
     . $sockfile
-    piduser=$( cat /proc/$SSH_AGENT_PID/uid )
-    sockuser=$( stat -c %u $SSH_AUTH_SOCK )
+    [ -f /proc/$SSH_AGENT_PID/uid ] &&
+	piduser=$( cat /proc/$SSH_AGENT_PID/uid )
+    [ -S "$SSH_AUTH_SOCK" ] &&
+	sockuser=$( stat -c %u $SSH_AUTH_SOCK )
     uid=$( id -u )
 fi
 
