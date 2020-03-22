@@ -56,6 +56,12 @@ Note that on AIX, =tput= only supports =setf= and not =setaf=.  Also,
 the RGB order of bits is backward, which I assume is because Power is
 big-endian and Intel is little-endian.
 
+** prompt-command.sh
+
+Taken from RedHat systems where this is configured by default.  Sets
+the title bar on terminals to reflect user@host:pwd.  This can also
+contain Screen session info.
+
 ** ssh-agent.sh
 
 I couldn't get Cygwin to work properly with the OpenSSH tools included
