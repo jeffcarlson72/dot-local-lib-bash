@@ -1,13 +1,15 @@
 # -*- shell-script -*-
 
+[ `uname -s` != CYGWIN_NT-10.0 ] && return
+
 [ -n "$ssh_agent_been_here" ] &&
     unset ssh_agent_been_here &&
     return ||
     export ssh_agent_been_here=1
 
-sockfile=$HOME/.ssh/agent
-if [ -f "$sockfile" ] ; then
-    . $sockfile
+envfile=$HOME/.ssh/agent
+if [ -f "$envfile" ] ; then
+    . $envfile
     [ -f /proc/$SSH_AGENT_PID/uid ] &&
 	piduser=$( cat /proc/$SSH_AGENT_PID/uid )
     [ -S "$SSH_AUTH_SOCK" ] &&
@@ -27,6 +29,6 @@ unset SSH_AGENT_PID SSH_AUTH_SOCK
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval $( ssh-agent )
-    echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK"  > $sockfile
-    echo "SSH_AGENT_PID=$SSH_AGENT_PID" >> $sockfile
+    echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK"  > $envfile
+    echo "SSH_AGENT_PID=$SSH_AGENT_PID" >> $envfile
 fi

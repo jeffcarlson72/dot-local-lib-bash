@@ -3,8 +3,8 @@
 
 * Preface
 
-These are the files that get included in my ~/.bash_profile and
-~/.bashrc.  Each of them may be for a different operating system, so
+These are the files that get included in my =~/.bash_profile= and
+=~/.bashrc=.  Each of them may be for a different operating system, so
 before copying them to any host, make sure each script does what you
 want on that machine.  Or add tests to them so they exit when not on
 an appropriate machine.
