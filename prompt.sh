@@ -44,9 +44,15 @@ __ps1flash()
     fi
 }
 
+if [ $( id -u ) -eq 0 ] ; then
+    user='\[${BOLD}${FGRED1}\]\u\[$RESET\]'
+else
+    user='\[$FGCYA1\]\u\[$RESET\]'
+fi
+
 if [ $( uname -s ) == 'CYGWIN_NT-10.0' ] ; then
     g="/cygdrive/c/Program Files/Git"
-    PS1='[\[$FGCYA1\]${USER#*+}\[$RESET\]'
+    PS1="[$user"
     PS1+='@'
     PS1+='\[$FGMAG1\]${HOSTNAME,,*}\[$RESET\]'
     PS1+=' '
@@ -70,8 +76,8 @@ elif [ $( uname -s ) == 'AIX' ] ; then
     PS1+='\$> '
 elif [ $( uname -s ) == 'Linux' ] ; then
     if type -t git > /dev/null ; then
-	    gitversion=$( git --version | awk '{print $NF}' )
-	    gitdocs=/usr/share/doc/git-$gitversion/
+	gitversion=$( git --version | awk '{print $NF}' )
+	gitdocs=/usr/share/doc/git-$gitversion/
     fi
     if [ -f /etc/centos-release -o -f /etc/fedora-release ] ; then
 	br0='['
@@ -104,7 +110,7 @@ elif [ $( uname -s ) == 'Linux' ] ; then
     fi
     PS1='${debian_chroot:+($debian_chroot)}'
     PS1+="$br0"
-    PS1+='\[$FGCYA1\]\u\[$RESET\]'
+    PS1+="$user"
     PS1+='@'
     PS1+="$host"
     PS1+="$sep"
