@@ -127,3 +127,4 @@ fi
 PS2='\!> '
 
 export PS1 PS2
+unset user
