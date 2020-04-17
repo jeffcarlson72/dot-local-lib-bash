@@ -68,3 +68,10 @@ I couldn't get Cygwin to work properly with the OpenSSH tools included
 in Windows 10.  Maybe I didn't try hard enough, but I just added the
 =openssh= package to my Cygwin install.  This ensures there will be an
 =ssh-agent= running so you can add your ssh keys.
+
+** windows.sh
+
+Now I seem to have a multitude of HOME directories in Windows.  In
+Cygwin, =$HOME= is =/cygwin64/home/$USER=, but in Windows
+=$USERPROFILE= is =C:/Users/$USER=.  Prefix that with =/cygdrive/c=
+and it's annoying to type.  Alias ~~ to cd there.
