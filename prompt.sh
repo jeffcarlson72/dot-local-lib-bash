@@ -1,5 +1,12 @@
 # -*- shell-script -*-
 
+# Only call this in .bashrc
+case $( caller ) in
+    *profile)
+	return
+	;;
+esac
+
 BGBLK1="$( tput setab 0 )"
 BGRED1="$( tput setab 1 )"
 BGGRN1="$( tput setab 2 )"
