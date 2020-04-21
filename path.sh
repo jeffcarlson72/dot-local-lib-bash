@@ -2,6 +2,13 @@
 
 [ `uname -s` != CYGWIN_NT-10.0 ] && return
 
+# Only call this once
+case $( caller ) in
+    *rc)
+	return
+	;;
+esac
+
 PYPATH="/cygdrive/c/tools/Anaconda3"
 PYPATH+=":/cygdrive/c/tools/Anaconda3/Library/mingw-w64/bin"
 PYPATH+=":/cygdrive/c/tools/Anaconda3/Library/usr/bin"
