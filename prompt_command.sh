@@ -2,6 +2,13 @@
 
 [ -f /etc/redhat-release ] && return
 
+# Only call this in .bashrc
+case $( caller ) in
+    *profile)
+	return
+	;;
+esac
+
 case $TERM in
     screen*)
 	PROMPT_COMMAND='printf "\033k%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'

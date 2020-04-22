@@ -3,8 +3,8 @@
 
 * Preface
 
-These are the files that get included in my ~/.bash_profile and
-~/.bashrc.  Each of them may be for a different operating system, so
+These are the files that get included in my =~/.bash_profile= and
+=~/.bashrc=.  Each of them may be for a different operating system, so
 before copying them to any host, make sure each script does what you
 want on that machine.  Or add tests to them so they exit when not on
 an appropriate machine.
@@ -56,9 +56,22 @@ Note that on AIX, =tput= only supports =setf= and not =setaf=.  Also,
 the RGB order of bits is backward, which I assume is because Power is
 big-endian and Intel is little-endian.
 
+** prompt-command.sh
+
+Taken from RedHat systems where this is configured by default.  Sets
+the title bar on terminals to reflect user@host:pwd.  This can also
+contain Screen session info.
+
 ** ssh-agent.sh
 
 I couldn't get Cygwin to work properly with the OpenSSH tools included
 in Windows 10.  Maybe I didn't try hard enough, but I just added the
 =openssh= package to my Cygwin install.  This ensures there will be an
 =ssh-agent= running so you can add your ssh keys.
+
+** windows.sh
+
+Now I seem to have a multitude of HOME directories in Windows.  In
+Cygwin, =$HOME= is =/cygwin64/home/$USER=, but in Windows
+=$USERPROFILE= is =C:/Users/$USER=.  Prefix that with =/cygdrive/c=
+and it's annoying to type.  Alias ~~ to cd there.

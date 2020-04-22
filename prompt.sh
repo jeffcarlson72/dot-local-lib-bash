@@ -1,5 +1,12 @@
 # -*- shell-script -*-
 
+# Only call this in .bashrc
+case $( caller ) in
+    *profile)
+	return
+	;;
+esac
+
 BGBLK1="$( tput setab 0 )"
 BGRED1="$( tput setab 1 )"
 BGGRN1="$( tput setab 2 )"
@@ -44,9 +51,15 @@ __ps1flash()
     fi
 }
 
+if [ $( id -u ) -eq 0 ] ; then
+    user='\[${BOLD}${FGRED1}\]\u\[$RESET\]'
+else
+    user='\[$FGCYA1\]\u\[$RESET\]'
+fi
+
 if [ $( uname -s ) == 'CYGWIN_NT-10.0' ] ; then
     g="/cygdrive/c/Program Files/Git"
-    PS1='[\[$FGCYA1\]${USER#*+}\[$RESET\]'
+    PS1="[$user"
     PS1+='@'
     PS1+='\[$FGMAG1\]${HOSTNAME,,*}\[$RESET\]'
     PS1+=' '
@@ -133,7 +146,7 @@ elif [ $( uname -s ) == 'Linux' ] ; then
     fi
     PS1='${debian_chroot:+($debian_chroot)}'
     PS1+="$br0"
-    PS1+='\[$FGCYA1\]\u\[$RESET\]'
+    PS1+="$user"
     PS1+='@'
     PS1+="$host"
     PS1+="$sep"
@@ -150,3 +163,4 @@ fi
 PS2='\!> '
 
 export PS1 PS2
+unset user
