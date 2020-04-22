@@ -68,25 +68,54 @@ elif [ $( uname -s ) == 'AIX' ] ; then
     PS1+=':'
     PS1+='\[$( tput setf 9 )\]\W\[$RESET\]'
     PS1+='\$> '
+elif [ $( uname -s ) == 'SunOS' ] ; then
+    PS1+='\u'
+    PS1+='@'
+    PS1+='\h'
+    PS1+=':'
+    PS1+='w'
+    PS1+='\$ '
+elif [ $( uname -s ) == 'FreeBSD' ] ; then
+    PS1='['
+    PS1+='\u'
+    PS1+='@'
+    PS1+='\h'
+    PS1+=' '
+    PS1+='\w'
+    PS1+=']'
+    PS1+='\$ '
+elif [ $( uname -s ) == 'NetBSD' ] ; then
+    PS1='['
+    PS1+='\u'
+    PS1+='@'
+    PS1+='\h'
+    PS1+=' '
+    PS1+='\W'
+    PS1+=']'
+    PS1+='\$ '
+elif [ $( uname -s ) == 'OpenBSD' ] ; then
+    PS1='['
+    PS1+='\u'
+    PS1+='@'
+    PS1+='\h'
+    PS1+=' '
+    PS1+='\W'
+    PS1+=']'
+    PS1+='\$ '
 elif [ $( uname -s ) == 'Linux' ] ; then
     if type -t git > /dev/null ; then
-	    gitversion=$( git --version | awk '{print $NF}' )
-	    gitdocs=/usr/share/doc/git-$gitversion/
+	gitversion=$( git --version | awk '{print $NF}' )
+	gitdocs=/usr/share/doc/git-$gitversion/
     fi
     if [ -f /etc/centos-release -o -f /etc/fedora-release ] ; then
 	br0='['
 	br1=']'
-	host='\[${FGWHT1}${BGBLU1}\]\h\[$RESET\]'
+	host='\[${FGBLU1}\]\h\[$RESET\]'
 	sep=' '
     elif [ -f /etc/redhat-release ] ; then
 	br0='['
 	br1=']'
 	host='\[$FGRED1\]\h\[$RESET\]'
-	sep=' '
-    elif [ -f /etc/fedora-release ] ; then
-	br0='['
-	br1=']'
-	host='\[${BOLD}${FGBLU1}\]\h\[$RESET\]'
 	sep=' '
     elif [ -f /etc/SuSE-release ] ; then
 	br0='<'
@@ -96,7 +125,7 @@ elif [ $( uname -s ) == 'Linux' ] ; then
     elif [ -f /etc/debian_version ] ; then
 	br0=''
 	br1=''
-	host='\[${BOLD}${FGGRN2}\]\h\[$RESET\]'
+	host='\[${FGGRN2}\]\h\[$RESET\]'
 	sep=':'
     fi
     if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
