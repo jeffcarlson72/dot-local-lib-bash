@@ -130,7 +130,7 @@ elif [ $( uname -s ) == 'Linux' ] ; then
 	br1=']'
 	host='\[$FGRED1\]\h\[$RESET\]'
 	sep=' '
-    elif [ -f /etc/SuSE-release ] ; then
+    elif [ -f /etc/SuSE-release -o -f /etc/SUSE-brand ] ; then
 	br0='<'
 	br1='>'
 	host='\[$FGGRN1\]\h\[$RESET\]'
