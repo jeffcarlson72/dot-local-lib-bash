@@ -89,6 +89,8 @@ elif [ $( uname -s ) == 'SunOS' ] ; then
     PS1+='w'
     PS1+='\$ '
 elif [ $( uname -s ) == 'FreeBSD' ] ; then
+    # BG = 220
+    # FG = 80
     PS1='['
     PS1+='\u'
     PS1+='@'
@@ -98,6 +100,8 @@ elif [ $( uname -s ) == 'FreeBSD' ] ; then
     PS1+=']'
     PS1+='\$ '
 elif [ $( uname -s ) == 'NetBSD' ] ; then
+    # BG = 238
+    # FG = 202
     PS1='['
     PS1+='\u'
     PS1+='@'
@@ -107,6 +111,8 @@ elif [ $( uname -s ) == 'NetBSD' ] ; then
     PS1+=']'
     PS1+='\$ '
 elif [ $( uname -s ) == 'OpenBSD' ] ; then
+    # BG = 81
+    # FG = 21
     PS1='['
     PS1+='\u'
     PS1+='@'
