@@ -31,6 +31,16 @@ following:
 In case you log in to a server whose termcap supports 256 colors, but
 does not set the TERM to reflect that.
 
+** fuzzy.sh
+
+I want to give a shout out to YouTuber [[https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA][Luke Smith]] for bringing up
+=fzf=, the fuzzy finder.  It works kind of like an interactive regular
+expression parser, but not quite regular expressions.  Let's say you
+pipe some text into fzf.  Now type "the."  What fzf will now do is
+narrow down the lines displayed to those matching /.*t.*h.*e.*/.  So I
+built some tools around it for searching documentation, history, and
+log files.
+
 ** keybinding.sh
 
 In particular, this fixes Control-Left and Control-Right to go
@@ -61,6 +71,12 @@ big-endian and Intel is little-endian.
 Taken from RedHat systems where this is configured by default.  Sets
 the title bar on terminals to reflect user@host:pwd.  This can also
 contain Screen session info.
+
+** pyle.sh
+
+A combination of PYgmentize and LEss.  Pygmentize will colorize text
+written in most popular programming languages like any good editor
+would.
 
 ** ssh-agent.sh
 
