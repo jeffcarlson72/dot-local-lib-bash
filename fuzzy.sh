@@ -1,6 +1,6 @@
 # -*- shell-script -*-
 
-type -p fzf >/dev/null || return
+type -p fzf > /dev/null || return
 
 dox()
 {
@@ -27,7 +27,7 @@ h()
     $( history | awk '{$1 = ""; print}' | fzf )
 }
 
-type -p colorize || type -p ccze || return
+type -p colorize > /dev/null || type -p ccze > /dev/null || return
 
 logs()
 {
