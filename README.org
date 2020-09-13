@@ -31,6 +31,12 @@ following:
 In case you log in to a server whose termcap supports 256 colors, but
 does not set the TERM to reflect that.
 
+** exa.sh
+
+exa is an ls replacement written in Rust.  I think it's short for
+examine.  exag is a function that switches on all the useful git
+options.  exat is a replacement for tree.
+
 ** fuzzy.sh
 
 I want to give a shout out to YouTuber [[https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA][Luke Smith]] for bringing up
