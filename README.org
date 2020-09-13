@@ -97,3 +97,9 @@ Now I seem to have a multitude of HOME directories in Windows.  In
 Cygwin, =$HOME= is =/cygwin64/home/$USER=, but in Windows
 =$USERPROFILE= is =C:/Users/$USER=.  Prefix that with =/cygdrive/c=
 and it's annoying to type.  Alias ~~ to cd there.
+
+** wsl.sh
+
+Export the variables to connect to the local X server and PulseAudio
+daemon.  Then start ssh-agent if it's not running.
+
