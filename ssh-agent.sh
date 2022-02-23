@@ -22,7 +22,7 @@ if [ -d "/proc/$SSH_AGENT_PID" -a \
      "$piduser"  == "$uid" -a	  \
      "$sockuser" == "$uid" ] ; then
     export SSH_AGENT_PID SSH_AUTH_SOCK
-    echo "Agent pid $SSH_AGENT_PID (*)"
+    ssh-add -l
     return
 fi
 unset SSH_AGENT_PID SSH_AUTH_SOCK
