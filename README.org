@@ -16,8 +16,8 @@ appropriate to the host in question into that directory.
 
 * Contents
 
-I am currently working with computers running any and all of the
-following:
+I have had to or am currently working with computers running any and
+all of the following:
 
 - RedHat RHEL, CentOS, and Fedora
 - Debian and Ubuntu
@@ -25,15 +25,23 @@ following:
 - FreeBSD, NetBSD, and OpenBSD
 - SysV Unix Solaris, OpenIndiana, and AIX
 - Cygwin
+- Macintosh OS/X
 
 ** 00term.sh
 
 In case you log in to a server whose termcap supports 256 colors, but
 does not set the TERM to reflect that.
 
+** asn.sh
+
+Look up the Autonomous System Number (and some other useful
+information) of an IPv4 address.  You should also see the country of
+origin and the whole routed net block, as well as possibly some ISP
+information.
+
 ** exa.sh
 
-=exa= is an ls replacement written in Rust.  I think it's short for
+=exa= is an =ls= replacement written in Rust.  I think it's short for
 examine.  =exag= is a function that switches on all the useful =git=
 options.  =exat= is a replacement for =tree=.
 
@@ -54,7 +62,7 @@ backward or forward one word at a time.  Mostly for non-Linux hosts.
 
 ** ls.sh
 
-On Cygwin, color ls is not set up by default.
+On Cygwin, color =ls= is not set up by default.
 
 ** path.sh
 
