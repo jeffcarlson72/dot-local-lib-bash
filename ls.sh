@@ -1,7 +1,15 @@
 # -*- shell-script -*-
 
 if [[ $TERM =~ color ]] ; then
-    alias ls='ls --color=auto'
-    alias ll='ls --color=auto -l'
-    alias l.='ls --color=auto -d .*'
+    case $( uname -s ) in
+	SunOS)
+	    [ -x /usr/gnu/bin/ls ] && alias ls='/usr/gnu/bin/ls --color=auto'
+	    ;;
+	Linux)
+	    alias ls='ls --color=auto'
+	    ;;
+    esac
 fi
+
+alias ll='ls -l'
+alias l.='ls -d .*'
