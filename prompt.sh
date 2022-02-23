@@ -26,7 +26,7 @@ else
     user="$( tput setaf 6 )"
 fi
 
-wdir="$( tput setaf 12 )"
+wdir="$( tput setaf 4 ; tput bold )"
 br0='['
 br1=']'
 sep=' '
@@ -101,7 +101,7 @@ case $( uname -s ) in
 	host="$( tput setaf 21 ; tput setab 81 )"
 	;;
     SunOS)
-	host="$( tput setaf 62 )"
+	host="$( tput setaf 5 ; tput setab 3 )"
 	;;
 esac
 
