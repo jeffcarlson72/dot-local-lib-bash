@@ -33,9 +33,9 @@ does not set the TERM to reflect that.
 
 ** exa.sh
 
-exa is an ls replacement written in Rust.  I think it's short for
-examine.  exag is a function that switches on all the useful git
-options.  exat is a replacement for tree.
+=exa= is an ls replacement written in Rust.  I think it's short for
+examine.  =exag= is a function that switches on all the useful =git=
+options.  =exat= is a replacement for =tree=.
 
 ** fuzzy.sh
 
