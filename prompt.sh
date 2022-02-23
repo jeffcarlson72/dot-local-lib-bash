@@ -54,7 +54,13 @@ case $( uname -s ) in
 	host="$( tput setaf 5 )"
 	;;
     Darwin)
-	host="$( tput setaf 8 )"
+	gitdocs=/library/Developer/CommandLineTools/usr/share/git-core/
+	wdir="$( tput setaf 32 )"
+	host="$( tput setab 250 ; tput setaf 238 )"
+	br0='['
+	br1=''
+	sep=']'
+	end=''
 	;;
     FreeBSD)
 	host="$( tput setaf 80 ; tput setab 220 )"
