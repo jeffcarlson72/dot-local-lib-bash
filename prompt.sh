@@ -6,6 +6,7 @@ case $( caller ) in
 	return
 	;;
 esac
+[[ "$-" == *i* ]] || return
 
 __ps1flash()
 {
