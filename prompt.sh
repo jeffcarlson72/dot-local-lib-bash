@@ -77,6 +77,7 @@ case $( uname -s ) in
 	fi
 
 	[ -f /etc/centos-release ] && ID=centos
+	[ -f /etc/redhat-release ] && ID=redhat
 	[ -f /etc/os-release ] && . /etc/os-release
 	case $ID in
 	    centos|fedora|redhat|rhel)
