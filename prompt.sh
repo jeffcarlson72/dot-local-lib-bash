@@ -80,7 +80,7 @@ case $( uname -s ) in
 	[ -f /etc/redhat-release ] && ID=redhat
 	[ -f /etc/os-release ] && . /etc/os-release
 	case $ID in
-	    centos|fedora|redhat|rhel)
+	    centos|fedora|redhat|rhel|almalinux|rockylinux)
 		host="$( tput setaf 4 )"
 		;;
 	    debian|ubuntu)
